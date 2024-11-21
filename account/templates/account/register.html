@@ -1,15 +1,15 @@
 {% extends 'auth_base.html' %}
 {% block title %}
-  Scrapbook - Login
+  Scrapbook - Register
 {% endblock %}
 
 {% block formTitle %}
-  Login
+  Register
 {% endblock %}
 
 {% block content %}
-  <form class="auth-form {% if form.errors %} was-validated {% endif %}" method="post">
-    {% for field in form %}
+  <form class="auth-form {% if user_form.errors %} was-validated {% endif %}" method="post">
+    {% for field in user_form %}
       <div class="form-floating mb-3">
         <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.html_name }}" required />
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
@@ -22,8 +22,6 @@
     {% endfor %}
 
     {% csrf_token %}
-    <button class="btn btn-primary w-100 py-2" type="submit" fdprocessedid="nm485a">Sign in</button>
-
-    <a href="{% url 'password_reset' %}" class="btn btn-link px-0">Forgotten your password?</a>
+    <button class="btn btn-primary w-100 py-2" type="submit" fdprocessedid="nm485a">Register</button>
   </form>
 {% endblock %}

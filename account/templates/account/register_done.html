@@ -1,0 +1,14 @@
+{% extends 'auth_base.html' %}
+{% block title %}
+  Scrapbook - Registration Complete
+{% endblock %}
+
+{% block formTitle %}
+  Welcome {{ new_user.first_name }}!
+{% endblock %}
+
+{% block content %}
+  <p>
+    Your account has been successfully created. Now you can <a href="{% url 'login' %}">log in</a>
+  </p>
+{% endblock %}

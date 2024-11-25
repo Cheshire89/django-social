@@ -6,6 +6,8 @@
 {% block content %}
   <div class="container-fluid">
     <h1>Dashboard</h1>
-    <p>Welcome to you dashboard.</p>
+    <p>
+      Welcome to you dashboard. You can <a href="{% url 'edit' %}">eidt your profile</a> or <a href="{% url 'password_change' %}">change your password</a>.
+    </p>
   </div>
 {% endblock %}

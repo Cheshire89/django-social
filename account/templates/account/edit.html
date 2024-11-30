@@ -7,34 +7,7 @@
   <div class="container py-5">
     <form class="{% if user_form.errors or profile_form.errors %} was-validated {% endif %}" method="post" enctype="multipart/form-data">
       <div class="row">
-        <div class="col-6">
-          {% comment %}User Form{% endcomment %}
-          {% for field in user_form %}
-            <div class="form-floating mb-3">
-              <input type="{{ field.field.widget.input_type }}" value="{{ field.value|default:'' }}" class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.html_name }}" required />
-              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-              {% if field.errors %}
-                {% for error in field.errors %}
-                  <p class="invalid-feedback">{{ error }}</p>
-                {% endfor %}
-              {% endif %}
-            </div>
-          {% endfor %}
-          {% comment %}Profile Form{% endcomment %}
-        </div>
-        <div class="col-6">
-          {% for field in profile_form %}
-            <div class="form-floating mb-3">
-              <input type="{{ field.field.widget.input_type }}" value="{{ field.value|default:'' }}" class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.html_name }}" required />
-              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-              {% if field.errors %}
-                {% for error in field.errors %}
-                  <p class="invalid-feedback">{{ error }}</p>
-                {% endfor %}
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
+        <div class="col-6 mx-auto">{{ user_form.as_div }} {{ profile_form.as_p }}</div>
       </div>
       <div class="row justify-content-center">
         <div class="col-auto">

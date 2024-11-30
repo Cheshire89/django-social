@@ -15,6 +15,20 @@
   <body>
     <main>
       {% include 'includes/header.html' %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="toast show align-items-center w-100 {% if message.tags == 'error' %}
+            text-bg-danger
+          {% endif %} {% if message.tags == 'success' %}
+            text-bg-success
+          {% endif %} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">{{ message|safe }}</div>
+              <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
       {% block content %}
 
       {% endblock %}

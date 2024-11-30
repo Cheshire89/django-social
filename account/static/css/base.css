@@ -9,3 +9,11 @@
     min-width: 300px;
     max-width: 400px;
 }
+
+.navbar {
+    padding-bottom: 0px;
+}
+
+.toast {
+    border-radius: 0px;
+}

@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from .models import Profile
-from django.utils.safestring import SafeString
 from django.contrib.auth.models import User
+from scrapbook.forms import BaseForm
 
 class LoginForm(forms.Form):
     '''User login form controller.'''
@@ -38,16 +38,6 @@ class UserRegistrationForm(forms.ModelForm):
         if User.objects.filter(email=data).exists():
             raise forms.ValidationError('Email already in use.')
         return data
-
-
-class BaseForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(BaseForm, self).__init__(*args, **kwargs)
-        for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form-control'
-
-    def as_div(self):
-        return SafeString(super().as_div().replace("<div>", "<div class='form-group mb-3'>"))
 
 
 class UserEditForm(BaseForm):

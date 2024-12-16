@@ -6,8 +6,16 @@
 {% block content %}
   <div class="container-fluid">
     <h1>Dashboard</h1>
+
+    {% with total_images_created=request.user.images_created.count %}
+      <p>Welcome to your dashboard. You have scrapped {{ total_images_created }} image {{ total_images_created|pluralize }}</p>
+    {% endwith %}
     <p>
-      Welcome to you dashboard. You can <a href="{% url 'edit' %}">eidt your profile</a> or <a href="{% url 'password_change' %}">change your password</a>.
+      Drag the follwing button to your bookmarks toolbar to bookmark images from other websites
+      <a class="btn btn-primary" href="javascript:{% include 'bookmarklet_launcher.js' %}">Scrap It!</a>
+    </p>
+    <p>
+      You can also <a href="{% url 'edit' %}">eidt your profile</a> or <a href="{% url 'password_change' %}">change your password</a>.
     </p>
   </div>
 {% endblock %}

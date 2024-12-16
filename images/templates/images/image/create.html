@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+  Scrapbook - Bookmark an image
+{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <h1>Bookmark an image</h1>
+    <form class="{% if form.errors %} was-validated {% endif %}" method="post">
+      <div class="row">
+        <div class="col-6 d-flex justify-content-center">
+          <img src="{{ request.GET.url }}" alt="image preview" class="img-fluid" style="max-height: 450px;" />
+        </div>
+        <div class="col-6">{{ form.as_div }}</div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          {% csrf_token %}
+          <button class="btn btn-primary mb-3" type="submit">Bookmark it!</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}

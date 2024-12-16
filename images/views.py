@@ -7,6 +7,9 @@ from django.http import HttpRequest
 
 
 @login_required
+def images_like
+
+@login_required
 def image_create(request: HttpRequest):
     if request.method == 'POST':
         form = ImageCrateForm(data=request.POST)
@@ -31,6 +34,7 @@ def image_create(request: HttpRequest):
 
 def image_detail(request: HttpRequest, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
+    print(image.title)
     return render(
         request,
         'images/image/detail.html',

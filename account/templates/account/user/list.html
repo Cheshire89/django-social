@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block title %}
+  People
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>People</h1>
+    <div class="people_list d-flex flex-wrap">
+      {% for user in users %}
+        <div class="d-flex flex-column justify-content-center align-items-center mx-1">
+          <div class="user">
+            <a href="{{ user.get_absolute_url }}">
+              {% if user.profile.photo %}
+                <img src="{% thumbnail user.profile.photo '180x180' crop %}" alt="Profile Photo" />
+              {% else %}
+                <img src="https://i.pravatar.cc/180?img=50" alt="Placeholder Image" />
+              {% endif %}
+            </a>
+          </div>
+          <div class="info">
+            <a href="{{ user.get_absolute_url }}" class="title">{{ user.get_full_name }}</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

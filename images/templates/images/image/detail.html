@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-4">
           {% load thumbnail %}
-          <a href="{{ image.image.url }}"><img src="{% thumbnail image.image 300x0 %}" alt="{{ image.title }}" /></a>
+          <a href="{{ image.image.url }}"><img src="{% thumbnail image.image '300x0' %}" alt="{{ image.title }}" /></a>
         </div>
         <div class="col-md-8">
           <div class="card-title">

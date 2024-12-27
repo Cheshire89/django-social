@@ -14,7 +14,7 @@
   </head>
   <body>
     <main>
-      {% include 'includes/header.html' %}
+      {% include 'includes/header.html' with section=section %}
       {% if messages %}
         {% for message in messages %}
           <div class="toast show align-items-center w-100 {% if message.tags == 'error' %}

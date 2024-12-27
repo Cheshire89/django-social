@@ -14,13 +14,19 @@
         {% endcomment %}
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+            <a class="nav-link {% if section == 'dashboard' %}
+              active
+            {% endif %}" href="{% url 'dashboard' %}">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'images:list' %}">Images</a>
+            <a class="nav-link {% if section == 'images' %}
+              active
+            {% endif %}" href="{% url 'images:list' %}">Images</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_list' %}">People</a>
+            <a class="nav-link {% if section == 'people' %}
+              active
+            {% endif %}" href="{% url 'user_list' %}">People</a>
           </li>
         </ul>
 

@@ -17,7 +17,6 @@ from .forms import (
     ProfileEditForm
 )
 from .models import (
-    Profile,
     Contact
 )
 from django.contrib.auth.decorators import (
@@ -174,7 +173,6 @@ def user_register(request: HttpRequest):
             )
             new_user.save()
             # Create the user profile
-            Profile.objects.create(user=new_user)
             create_action(new_user, 'has created an account')
             return render(
                 request,
